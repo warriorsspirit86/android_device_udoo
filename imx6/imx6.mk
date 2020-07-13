@@ -1,8 +1,13 @@
-$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/generic_no_telephony_clean.mk)
-$(call inherit-product, $(TOPDIR)frameworks/base/data/sounds/AllAudio.mk)
+# $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
+# $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_no_telephony_clean.mk)
+# $(call inherit-product, $(TOPDIR)frameworks/base/data/sounds/AllAudio.mk)
+USE_OEM_TV_APP := true
+$(call inherit-product, device/google/atv/products/atv_base.mk)
 
+PRODUCT_NAME := UDOO Neo
+PRODUCT_DEVICE := UDOO Neo Solox
 PRODUCT_BRAND := UDOO
+PRODUCT_MODEL := UDOONEO-MX6SX
 PRODUCT_MANUFACTURER := Seco
 
 # i2c-tools
@@ -118,6 +123,10 @@ PRODUCT_PACKAGES += \
 	libdrmframework        \
 	libdrmpassthruplugin   \
 	libfwdlockengine       \
+
+PRODUCT_PACKAGES += \
+	sensors.UDOONEO \
+	magd \
 
 # Omx related libs
 omx_libs := \
@@ -301,6 +310,9 @@ PRODUCT_COPY_FILES += \
 	device/udoo/common/ui/bootanimation.zip:system/media/bootanimation.zip \
 	device/udoo/imx6/toolbox:recovery/root/sbin/toolbox \
 
+PRODUCT_COPY_FILES +=	\
+	device/udoo/udooneo_6sx/uEnv.txt:system/uEnv.txt \
+	device/udoo/udooneo_6sx/udoo-gpio-export:system/bin/udoo-gpio-export \
 
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
@@ -313,7 +325,13 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 	dalvik.vm.heapgrowthlimit=128m \
 	ro.radio.noril=yes \
-	ro.carrier=wifi-only
+	ro.carrier=wifi-only \
+
+# Low RAM
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.config.low_ram=true \
+	ro.config.max_starting_bg=8 \
+	ro.sys.fw.bg_apps_limit=16
 
 PRODUCT_DEFAULT_DEV_CERTIFICATE := \
 	device/udoo/common/security/testkey

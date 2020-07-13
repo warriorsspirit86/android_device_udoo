@@ -17,13 +17,13 @@ PRODUCT_COPY_FILES +=	\
 
 
 TARGET_BOOTLOADER_BOARD_NAME := UDOONEO
-PRODUCT_MODEL := UDOONEO-MX6SX
+# PRODUCT_MODEL := UDOONEO-MX6SX
 
 TARGET_RELEASETOOLS_EXTENSIONS := device/udoo/imx6
 
-PRODUCT_PACKAGES += \
-	sensors.UDOONEO \
-	magd
+# PRODUCT_PACKAGES += \
+# 	sensors.UDOONEO \
+# 	magd
 
 
 # Connectivity - Wi-Fi wlink8
@@ -58,11 +58,11 @@ SENSOR_MMA8451 := true
 BOARD_KERNEL_CMDLINE := console=ttymxc0,115200 init=/init vmalloc=256M androidboot.console=ttymxc0 consoleblank=0 androidboot.hardware=freescale cma=128M androidboot.selinux=disabled androidboot.dm_verity=disabled no_console_suspend
 BOARD_KERNEL_CMDLINE += uart_from_osc clk_ignore_unused
 
-# Low RAM
-PRODUCT_PROPERTY_OVERRIDES += \
-	ro.config.low_ram=true \
-	ro.config.max_starting_bg=8 \
-	ro.sys.fw.bg_apps_limit=16
+# # Low RAM
+# PRODUCT_PROPERTY_OVERRIDES += \
+# 	ro.config.low_ram=true \
+# 	ro.config.max_starting_bg=8 \
+# 	ro.sys.fw.bg_apps_limit=16
 
 BOARD_HAVE_BLUETOOTH_TI := true
 BOARD_HAVE_BLUETOOTH_BCM := false
@@ -113,9 +113,9 @@ TARGET_KERNEL_MODULES += \
 	arch/arm/boot/dts/imx6sx-udoo-neo-full-m4.dtb:system/dts/imx6sx-udoo-neo-full-m4.dtb \
 	arch/arm/boot/dts/imx6sx-udoo-neo-full.dtb:system/dts/imx6sx-udoo-neo-full.dtb \
 
-PRODUCT_COPY_FILES +=	\
-	device/udoo/udooneo_6sx/uEnv.txt:system/uEnv.txt
-	device/udoo/udooneo_6sx/udoo-gpio-export:system/bin/udoo-gpio-export
+# PRODUCT_COPY_FILES +=	\
+# 	device/udoo/udooneo_6sx/uEnv.txt:system/uEnv.txt
+# 	device/udoo/udooneo_6sx/udoo-gpio-export:system/bin/udoo-gpio-export \
 
 BOARD_SEPOLICY_DIRS := \
        device/udoo/imx6/sepolicy \
