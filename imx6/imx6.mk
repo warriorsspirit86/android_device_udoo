@@ -89,7 +89,6 @@ PRODUCT_PACKAGES += Dell_Dell_USB_Keyboard.kcm
 # Audio related lib
 PRODUCT_PACKAGES += \
 	audio.primary.imx6     \
-	audio_policy.conf      \
 	tinyplay               \
 	audio.a2dp.default     \
 	audio.usb.default      \
@@ -98,6 +97,7 @@ PRODUCT_PACKAGES += \
 	libsrec_jni            \
 	libtinyalsa            \
 	libaudioutils          \
+#	audio_policy.conf      \
 
 # iMX6 Hardware HAL libs
 PRODUCT_PACKAGES += \
@@ -292,7 +292,6 @@ PRODUCT_COPY_FILES += \
 	device/udoo/common/input/Vendor_0596_Product_0001.idc:system/usr/idc/Vendor_0596_Product_0001.idc \
 	device/udoo/common/input/Vendor_04d8_Product_f724.idc:system/usr/idc/Vendor_04d8_Product_f724.idc \
 	device/udoo/common/input/Vendor_0eef_Product_a107.idc:system/usr/idc/Vendor_0eef_Product_a107.idc \
-	system/core/rootdir/init.rc:root/init.rc \
 	device/udoo/imx6/etc/apns-conf.xml:system/etc/apns-conf.xml \
 	device/udoo/imx6/etc/init.usb.rc:root/init.freescale.usb.rc \
 	device/udoo/imx6/etc/ueventd.freescale.rc:root/ueventd.freescale.rc \
@@ -309,6 +308,7 @@ PRODUCT_COPY_FILES += \
 	device/fsl-proprietary/media-profile/media_profiles_1080p.xml:system/etc/media_profiles_1080p.xml \
 	device/udoo/common/ui/bootanimation.zip:system/media/bootanimation.zip \
 	device/udoo/imx6/toolbox:recovery/root/sbin/toolbox \
+#	system/core/rootdir/init.rc:root/init.rc \
 
 PRODUCT_COPY_FILES +=	\
 	device/udoo/udooneo_6sx/uEnv.txt:system/uEnv.txt \
@@ -333,8 +333,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.config.max_starting_bg=8 \
 	ro.sys.fw.bg_apps_limit=16
 
-PRODUCT_DEFAULT_DEV_CERTIFICATE := \
-	device/udoo/common/security/testkey
+# PRODUCT_DEFAULT_DEV_CERTIFICATE := \
+# 	device/udoo/common/security/testkey
 
 # include a google recommend heap config file.
 include frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk

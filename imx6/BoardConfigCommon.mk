@@ -81,29 +81,29 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16777216
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1258291200
 BOARD_CACHEIMAGE_PARTITION_SIZE := 444596224
 BOARD_FLASH_BLOCK_SIZE := 4096
-TARGET_RECOVERY_UI_LIB := librecovery_ui_udoo
+# TARGET_RECOVERY_UI_LIB := librecovery_ui_udoo
 
 # Freescale multimedia parser related prop setting
 # Define fsl avi/aac/asf/mkv/flv/flac format support
-ADDITIONAL_BUILD_PROPERTIES += \
-    ro.FSL_AVI_PARSER=1 \
-    ro.FSL_AAC_PARSER=1 \
-    ro.FSL_ASF_PARSER=0 \
-    ro.FSL_FLV_PARSER=1 \
-    ro.FSL_MKV_PARSER=1 \
-    ro.FSL_FLAC_PARSER=1 \
-    ro.FSL_MPG2_PARSER=1 \
-    ro.FSL_REAL_PARSER=0 \
+# ADDITIONAL_BUILD_PROPERTIES += \
+#     ro.FSL_AVI_PARSER=1 \
+#     ro.FSL_AAC_PARSER=1 \
+#     ro.FSL_ASF_PARSER=0 \
+#     ro.FSL_FLV_PARSER=1 \
+#     ro.FSL_MKV_PARSER=1 \
+#     ro.FSL_FLAC_PARSER=1 \
+#     ro.FSL_MPG2_PARSER=1 \
+#     ro.FSL_REAL_PARSER=0 \
 
 # SuperSU installation
 PRODUCT_COPY_FILES += \
 	device/udoo/common/SuperSU/arm/su:system/xbin/daemonsu \
-	device/udoo/common/SuperSU/arm/su:system/xbin/su \
 	device/udoo/common/SuperSU/arm/su:system/xbin/sugote \
 	device/udoo/common/SuperSU/arm/su:system/bin/.ext/.su \
 	device/udoo/common/SuperSU/arm/supolicy:system/xbin/supolicy \
 	device/udoo/common/tools/fakerclocal:system/bin/fakerclocal \
-	device/udoo/common/SuperSU/arm/libsupol.so:system/lib/libsupol.so
+	device/udoo/common/SuperSU/arm/libsupol.so:system/lib/libsupol.so \
+#	device/udoo/common/SuperSU/arm/su:system/xbin/su \
 
 -include device/google/gapps/gapps_config.mk
 
